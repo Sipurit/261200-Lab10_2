@@ -1,4 +1,4 @@
-class Lab10_2{
+public class Lab10_2{
     public static void main(String[] args) {
         Xpay xpay = new XpayImpl();
         xpay.setCreditCardNo("4789565874102365");
