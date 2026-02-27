@@ -1,13 +1,20 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+class Lab10_2{
+    public static void main(String[] args) {
+        Xpay xpay = new XpayImpl();
+        xpay.setCreditCardNo("4789565874102365");
+        xpay.setCustomerName("Somchai Jaidee");
+        xpay.setCardExpMonth("09");
+        xpay.setCardExpYear("25");
+        xpay.setCardCVVNo((short) 235);
+        xpay.setAmount(2565.23);
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+        PayD payD = new XpayToPayDAdapter(xpay);
+
+        // Print values from the adapted PayD interface
+        System.out.println("Credit Card Number: " + payD.getCreditCardNo());
+        System.out.println("Card Owner Name: " + payD.getCardOwnerName());
+        System.out.println("Card Expiry Date: " + payD.getCardExpMonthYear());
+        System.out.println("CVV: " + payD.getCVVNo());
+        System.out.println("Total Amount: " + payD.getTotalAmount());
     }
 }
