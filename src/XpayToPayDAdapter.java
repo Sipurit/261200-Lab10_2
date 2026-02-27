@@ -4,8 +4,8 @@ public class XpayToPayDAdapter implements PayD{
         this.xpay = xpay;
     }
 
-    @Override
-    public long getCreditCardNo() {
+    @Override // we use XpayToPayD as adapter that in middle between xpay and payD
+    public long getCreditCardNo() { 
         return Long.parseLong(xpay.getCreditCardNo());
     }
 
@@ -36,12 +36,12 @@ public class XpayToPayDAdapter implements PayD{
     }
 
     @Override
-    public Integer getCVVNo() {
+    public Integer getCVVNo() { // We use intValue since xpay.getCardCVVNo originally from Short
         return xpay.getCardCVVNo().intValue();
     }
 
     @Override
-    public void setCVVNo(Integer cVVNo) {
+    public void setCVVNo(Integer cVVNo) { // We use shortValue since cVVNo originally from Integer
         xpay.setCardCVVNo(cVVNo.shortValue());
     }
 
