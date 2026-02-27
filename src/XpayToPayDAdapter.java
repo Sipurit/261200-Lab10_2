@@ -26,7 +26,7 @@ public class XpayToPayDAdapter implements PayD{
 
     @Override
     public String getCardExpMonthYear() {
-        return xpay.getCardExpMonth() + xpay.getCardExpYear();
+        return xpay.getCardExpMonth() + "/" + xpay.getCardExpYear();
     }
 
     @Override
